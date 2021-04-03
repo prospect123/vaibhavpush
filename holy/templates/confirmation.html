@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% load static %}
+<main>
+      <!-- Hero Area Start-->
+     <div> <center><h2>Placed Orders</h2></center></div>
+      <!--================ confirmation part start =================-->
+      <section><div><div class="row">
+                      {% for i in op %}
+                      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                          <div class="single-popular-items mb-50 text-center">
+                              <div class="popular-img">
+                                  <a href="" ><img src="{{ i.item.image.url }}" alt="" width="250" height="356"></a>
+                                  <div class="img-cap">
+                                      
+                                  </div>
+                              </div>
+                              <div class="popular-caption">
+                                  <h3>{{ i.item.name }}</h3>
+                                  <span class="">rs. {{ i.item.price }}</span><br>
+                                  <span>Qty:{{i.quantity}} total:{{i.total_cost}}   </span>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %} </div>                   
+                  <br><a class="btn_1" href="{% url 'shp' %}">Continue Shopping</a>
+                  </div></div>
+                  
+            
+        </div>
+      </section>
+      <!--================ confirmation part end =================-->
+  </main>
+  {% endblock %}

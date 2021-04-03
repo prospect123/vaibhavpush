@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% load static %}
+<main>
+    <center><h2>Watch Shop</h2></center>
+        <!-- Hero Area End-->
+        <!--================Single Product Area =================-->
+
+       <center> <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+            <div class="single-popular-items mb-50 text-center">
+                <div class="popular-img">
+                    <a href="" ><img src="{{ pot.image.url }}" alt="" width="350" height="456"></a>
+                </div>
+                <div class="popular-caption">
+                    <h3>{{ pot.name }}</h3>
+                    <span>{{ pot.price }}rs</span>
+                </div>
+            </div>
+        </div>
+              {% if user.is_authenticated %}
+              {% if items %}
+              <a type="submit" href="{% url 'cart' %}" class="btn_3">Go to cart</a>
+              {% else %}
+                    <form action="/add_cart">
+                    <input type="hidden" name="prod_id" value={{pot.id}} id="prod_id">
+                        <button type="submit" class="btn_3">Add to cart</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+       </center>
+
+        <!--================End Single Product Area =================-->
+        <!-- subscribe part here -->
+        <section class="subscribe_part section_padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="subscribe_part_content">
+                            <h2>Get promotions & updates!</h2>
+                            <p>Seamlessly empower fully researched growth strategies and interoperable internal or “organic” sources credibly innovate granular internal .</p>
+                            <div class="subscribe_form">
+                                <input type="email" placeholder="Enter your mail">
+                                <a href="#" class="btn_1">Subscribe</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- subscribe part end -->
+    </main>
+    {% endblock %}

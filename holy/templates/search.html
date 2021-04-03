@@ -1,0 +1,23 @@
+ {% extends 'base.html' %}
+{% load static %}
+{% block body %}
+{% if sr %}
+  {% for s in sr %} 
+  <div class="row">
+    
+     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+         <div class="single-new-pro mb-30 text-center">
+             <div class="product-img">
+                 <a href="{% url 'pd' i.id %}" ><img src="{{ s.image.url }}" alt="" width="250" height="356"></a>
+             </div>
+             
+             <div class="product-caption">
+                 <h3><a href="product_details.html">{{ s.name }}</a></h3>
+              {% endfor %}  
+             </div>
+         </div>
+     </div>
+ </div>
+    
+    {% endif %}
+    {% endblock %}

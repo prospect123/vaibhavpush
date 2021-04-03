@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% load static %}
+   <main>
+     <center><h2>Profile</h2></center>  
+         <section class="checkout_area section_padding">
+          <div class="container">
+            <div class="billing_details">
+              <div class="row">
+                <div class="col-lg-8">
+                  <h3>Billing Details</h3>
+                  <form class="row contact_form" action="" method="post" novalidate="novalidate">
+                    {% csrf_token %}
+                    <div class="col-md-6 form-group p_star">
+                      <input type="text" class="form-control" id="first" name="fname" placeholder="First name" />
+                  
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                      <input type="text" class="form-control" id="last" name="lname" placeholder="last name"/>
+                      
+                    </div>
+                    <div class="col-md-12 form-group">
+                      <input type="text" class="form-control" id="company" name="company" placeholder="Company name" />
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                      <input type="text" class="form-control" id="number" name="number" placeholder="contact"/>
+                      
+                    </div>
+                    <div class="col-md-6 form-group p_star">
+                      <input type="text" class="form-control" id="email" name="compemailany" placeholder="email" />
+                      
+                    </div>
+                    <div class="col-md-12 form-group p_star">
+                      <input type="text" class="form-control" id="country" name="country" placeholder="country" />
+                      
+                    </div>
+                    <div class="col-md-12 form-group p_star">
+                      <input type="text" class="form-control" id="add1" name="add1" placeholder="address line 1"/>
+                
+                    </div>
+                    <div class="col-md-12 form-group p_star">
+                      <input type="text" class="form-control" id="add2" name="add2" placeholder="address line 2"/>
+                      
+                    </div>
+                    <div class="col-md-12 form-group p_star">
+                      <input type="text" class="form-control" id="city" name="city" placeholder="city"/>
+                    </div>
+                    <div class="col-md-12 form-group p_star">
+                      <input type="text" class="form-control" id="dist" name="dist" placeholder="district"/>
+                      
+                    </div>
+                    <div class="col-md-12 form-group">
+                      <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" />
+                    </div>
+                    {%if cart%}
+                    <div><button class="btn_3">Save</button></div>
+                    {%else%}
+                    <a class="btn_3" href="{% url 'home' %}">Save</a>
+                    {%endif%}
+                  </form>
+                 </div>
+                 <div class="col-lg-4">
+                  <span style="color: rgb(243, 8, 8);">use existing Address<a class="btn_3" href="{% url 'home' %}">Skip</a></span></div></div>
+                
+            </div>
+          </div></div>
+        </section>
+        <!--================End Checkout Area =================-->
+    </main>
+{% endblock %}

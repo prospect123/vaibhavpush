@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% load static %}
+<center><h2>Checkout</h2></center>
+<section>
+<div>
+<div class="row">
+<div class="col-lg-6">
+    <div class="order_box">
+      <h2>Your Order</h2>
+      <ul class="list">
+        <li>
+          <a href="{% url 'cart' %}">Product
+            <span>Total</span>
+          </a>
+        </li>
+        {% for i in item %}
+        <li>
+          <a href="#">{{i.product.name}}
+            <span class="middle"><img src="{{ i.product.image.url}}" height="45" width="35"></span>
+            <span class="middle">{{i.quantity}}</span>
+            <span class="middle">{{i.product.price}}</span>
+            <span class="last">{{i.total_cost}}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      <ul class="list list_2">
+        <li>
+          <a href="#">Subtotal
+            <span>Rs. {{amount}}</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">Shipping
+            <span>Flat rate: Rs. 70</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">Total
+            <span>Rs. {{totalamount}}</span>
+          </a>
+        </li>
+      </ul>
+      
+      <div class="creat_account">
+        <input type="checkbox" id="f-option4" name="selector" checked  required/>
+        <label for="f-option4">accepting only </label>
+        <a href="#">Cash on Delievery</a>
+      </div>
+      <a class="btn_3" href="{% url 'chk' %}">Add new Address</a>
+    </div>
+  </div><div class="col-lg-4">
+    <h2><u><b>Address</b></u></h2>
+    <form action="/confirm">
+    {% for i in add %}
+    <input type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{i.id}}"  checked>
+    <span class="">{{i.first}} {{i.last}}</span><br>
+    <span class="">{{i.phone}}</span><br>
+    <span class="">{{i.add1}},{{i.add2}}</span><br>
+    <span class="">{{i.city}},{{i.dist}},{{i.country}}</span><br>
+    <span class="">{{i.zipcode}}</span><br>
+     {% endfor %}
+     <button class="btn_3" type="submit">Continue</button></form>
+    <div>
+
+  </div></div>
+</div></div></section>
+{% endblock %}
